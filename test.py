@@ -1,5 +1,6 @@
 #%%
 import pandas as pd
+import matplotlib.pyplot as plt
 import urllib
 
 #time_series_covid19_confirmed_global.csv
@@ -12,6 +13,7 @@ url_recov = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A
 data_confirmed = pd.read_csv(url_confirmed)
 
 
-print (data_confirmed.iloc[[2]])
-
-
+qatari = (data_confirmed.iloc[[185]]).drop(columns =['Lat', 'Long','Province/State','Country/Region']).transpose()
+print(qatari)
+y = qatari[185]
+plt.plot(y)
